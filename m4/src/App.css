@@ -6,21 +6,26 @@
 
 :root {
   /* Colores */
-  --color-primary: #6d28d9;
-  --color-primary-dark: #5b21b6;
-  --color-primary-deep: #3b0764;
-  --color-primary-light: #9333ea;
-  --color-primary-pale: #e9d5ff;
-  --color-gold: gold;
-  --color-error: #c00;
+ --color-primary: #b91c1c;
+  --color-primary-dark: #991b1b;
+  --color-primary-deep: #450a0a;
+  --color-primary-light: #dc2626;
+  --color-primary-pale: #fecaca;
+  --color-gold: #c88003; 
+
+  --color-error: #c00;  
   --color-error-bg: #fff5f5;
   --color-error-soft: #f3b3b3;
-  --color-surface: #fff;
-  --color-text: #222;
-  --color-muted: #666;
-  --color-border: #ddd;
-  --color-border-input: #ccc;
+
+  --color-surface: #fff3c8;    
+  --color-surface-soft: #fffaf0;    
+  --color-text: #1a1209;
+  --color-muted: #5c4a2a;
+  --color-border: #120d08;
+  --color-border-input: #8a7340;
   --color-star-off: #ccc;
+
+  
 
   /* Medidas */
   --radius-sm: 8px;
@@ -32,6 +37,15 @@
   --font-display: "Hamilfont", Georgia, serif;
 }
 
+body {
+  margin: 0;
+  background-color: var(--color-page, #120d08); /* se ve mientras carga la imagen */
+  background-image: url("./assets/img/bg-main.webp");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  min-height: 100vh;
+}
 /* ---------- Estructura compartida ---------- */
 
 .reviewForm,
@@ -83,6 +97,8 @@
   border-radius: var(--radius-sm);
   font: inherit;
   font-weight: 400;
+  background: var(--color-surface-soft);
+  color: var(--color-text);
 }
 
 .reviewForm textarea {
@@ -204,7 +220,7 @@
 .review-container > h3 {
   margin: 0 0 0.25rem;
   font-size: 1.25rem;
-  color: var(--color-primary-deep);
+  color: var(--color-primary-light);
 }
 
 .review {
