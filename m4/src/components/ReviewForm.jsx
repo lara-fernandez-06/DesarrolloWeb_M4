@@ -29,7 +29,7 @@ const format = z.object({
 
 export default function ReviewForm(){
 
-    const {register, handleSubmit,  formState: {errors, isSubmitting },} = useForm(
+    const {register, handleSubmit,  reset, formState: {errors, isSubmitting },} = useForm(
         {resolver: zodResolver(format), defaultValues:{
             nombre: "",
             apellido: "",

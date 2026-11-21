@@ -35,6 +35,30 @@
       "aceptaTerminos": true,
       "fecha": "2026-11-21T12:46:29.838Z",
       "id": "mncM1kAm12I"
+    },
+    {
+      "nombre": "Héctor",
+      "apellido": "Fernández",
+      "email": "hector.fs1704@gmail.com",
+      "fechaNacimiento": "1734-04-17T00:00:00.000Z",
+      "obra": "Hamilton",
+      "rating": 5,
+      "review": "Very gud",
+      "aceptaTerminos": true,
+      "fecha": "2026-11-21T13:00:52.485Z",
+      "id": "ZjFiZ7LUovw"
+    },
+    {
+      "nombre": "Héctor ",
+      "apellido": "Fernández",
+      "email": "hector.fs1704@gmail.com",
+      "fechaNacimiento": "2000-04-17T00:00:00.000Z",
+      "obra": "Dear Evan Hansen",
+      "rating": 3,
+      "review": "Está bien\n\n-Sincerely, me",
+      "aceptaTerminos": true,
+      "fecha": "2026-11-21T13:05:09.405Z",
+      "id": "S78f2PIwZkI"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
