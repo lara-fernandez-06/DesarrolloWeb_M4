@@ -11,8 +11,31 @@
       "aceptaTerminos": true,
       "fecha": "2026-11-21T03:37:03.971Z",
       "id": "qMN3TsiM4n0"
+    },
+    {
+      "nombre": "Ada",
+      "apellido": "Platt",
+      "email": "ada.lovelace@gmail.com",
+      "fechaNacimiento": "2006-11-27T00:00:00.000Z",
+      "obra": "Hamilton",
+      "rating": 5,
+      "review": "es muy buena, una gran obra!!",
+      "aceptaTerminos": true,
+      "fecha": "2026-11-21T11:16:45.558Z",
+      "id": "tOB2Jy_fZ50"
+    },
+    {
+      "nombre": "Lin",
+      "apellido": "Manuel Miranda",
+      "email": "lmm@gmail.com",
+      "fechaNacimiento": "1981-01-11T00:00:00.000Z",
+      "obra": "West Side Story",
+      "rating": 5,
+      "review": "Me ha encantado, los bailes son espectaculares y el cast transmitió la emoción de la obra. 100% recomendada!!",
+      "aceptaTerminos": true,
+      "fecha": "2026-11-21T12:46:29.838Z",
+      "id": "mncM1kAm12I"
     }
-
   ],
   "$schema": "./node_modules/json-server/schema.json"
 }

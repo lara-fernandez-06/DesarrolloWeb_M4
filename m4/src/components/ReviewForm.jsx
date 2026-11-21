@@ -2,7 +2,7 @@
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {useForm} from 'react-hook-form'
-import { submitReview } from "../utils/api";
+import * as api from '../utils/api'
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 const OBRAS = ["Dear Evan Hansen", "Hamilton", "Heathers", "Six", "Hadestown", "West Side Story", "In the Heights"]
@@ -45,7 +45,7 @@ export default function ReviewForm(){
     const queryClient = useQueryClient();
 
     const mutacion = useMutation({
-        mutationFn: submitReview,
+        mutationFn: api.submitReview,
         onSuccess: () => {
         // invalidamos la query para que se refresque la lista
         queryClient.invalidateQueries({ queryKey: ["reviews"] });
