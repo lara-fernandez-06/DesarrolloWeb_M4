@@ -2,7 +2,7 @@ Misión M4 · Full Contact Form — Web Development I.
 
 ## Cómo probarlo
 Ejecutas npm run dev, y podrás ver el formulario a tu disposición para opinar sobre un musical que tú elijas.
-Para esta entrega parcial, el formulario manda la información y la guarda en db.json. En el futuro, se enseñarán las reseñas más recientes en la página web.
+Para esta entrega parcial, el formulario manda la información y la guarda en db.json. Debajo del formulario, se pueden ver las últimas reseñas añadidas.
 
 ## Uso de IA
 Usé Claude como pareja de programación: para ayudarme sobretodo a entender los conceptos de estas nuevas librerías y a mejorar mi eficiencia al escribir partes del código. Además, tuve un problema con cómo instalé alguans librerías, ya que algunas estaban en el proyecto, como debería ser, pero algunas estaban en el repo de gitHub, una carpeta más arriba, lo cual Claude me ayudó a solucionar.
@@ -14,7 +14,6 @@ Al final del proyecto también me ayudó con la corrección de errores y con la 
 
 
 ## Autopsia
-Aunque es del tema siguiente, decidí implementar para css la librería tailwind, ya que me pareció cómoda y ya lo habíamos visto en clase para cuando escribí esa parte del código.
 
 Para el tema de las etiquetas en los campos del formulario, decidí anidar los inputs (u otras etiquetas) dentro de las labels para evitarme el problema de los ids, ya que cuando trabajamos con componentes React no es buena idea usar ids, pues queremos que sean reutilizables. La otra alternativa qeu tenía era utilizar useId, pero me parecía innecesariamente complejo para tantos campos teniendo la alternativa que elegí, que te deja ver en un momento que campos están relacionados con qué labels, y es igual de reutilizable.
 
