@@ -1,15 +1,61 @@
-.reviewForm {
-  max-width: 480px;
+@font-face {
+  font-family: "Hamilfont";
+  src: url("./assets/fonts/TrajanPro-FontsMagazine.ttf");
+  font-display: swap;
+}
+
+:root {
+  /* Colores */
+  --color-primary: #6d28d9;
+  --color-primary-dark: #5b21b6;
+  --color-primary-deep: #3b0764;
+  --color-primary-light: #9333ea;
+  --color-primary-pale: #e9d5ff;
+  --color-gold: gold;
+  --color-error: #c00;
+  --color-error-bg: #fff5f5;
+  --color-error-soft: #f3b3b3;
+  --color-surface: #fff;
+  --color-text: #222;
+  --color-muted: #666;
+  --color-border: #ddd;
+  --color-border-input: #ccc;
+  --color-star-off: #ccc;
+
+  /* Medidas */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --container-width: 480px;
+
+  /* Fuentes */
+  --font-body: system-ui, sans-serif;
+  --font-display: "Hamilfont", Georgia, serif;
+}
+
+/* ---------- Estructura compartida ---------- */
+
+.reviewForm,
+.review-container {
+  max-width: var(--container-width);
   margin: 2rem auto;
-  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  background: #fff;
-  font-family: system-ui, sans-serif;
+  font-family: var(--font-body);
 }
+
+.reviewForm,
+.review {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.reviewForm {
+  padding: 1.5rem;
+}
+
+/* ---------- Formulario ---------- */
 
 /* Cada campo: texto encima, input debajo */
 .reviewForm > label {
@@ -20,14 +66,21 @@
   font-size: 0.9rem;
 }
 
+/* Checkbox de términos: en línea */
+.reviewForm > label:has(input[type="checkbox"]) {
+  flex-direction: row;
+  align-items: center;
+  font-weight: 400;
+}
+
 .reviewForm input[type="text"],
 .reviewForm input[type="email"],
 .reviewForm input[type="date"],
 .reviewForm select,
 .reviewForm textarea {
   padding: 0.6rem 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  border: 1px solid var(--color-border-input);
+  border-radius: var(--radius-sm);
   font: inherit;
   font-weight: 400;
 }
@@ -37,28 +90,58 @@
   resize: vertical;
 }
 
+/* Foco (normal y en error) */
 .reviewForm input:focus-visible,
 .reviewForm select:focus-visible,
 .reviewForm textarea:focus-visible {
-  outline: 2px solid #6d28d9;
+  outline: 2px solid var(--color-primary);
   outline-offset: 1px;
 }
 
-/* Checkbox de términos: en línea */
-.reviewForm > label:has(input[type="checkbox"]) {
-  flex-direction: row;
-  align-items: center;
-  font-weight: 400;
+.reviewForm input[aria-invalid="true"],
+.reviewForm select[aria-invalid="true"],
+.reviewForm textarea[aria-invalid="true"] {
+  border-color: var(--color-error);
+  background: var(--color-error-bg);
+}
+
+.reviewForm input[aria-invalid="true"]:focus-visible,
+.reviewForm select[aria-invalid="true"]:focus-visible,
+.reviewForm textarea[aria-invalid="true"]:focus-visible {
+  outline-color: var(--color-error);
 }
 
 /* Errores */
+.error,
 .reviewForm [role="alert"] {
   margin: -0.5rem 0 0;
-  color: #c00;
+  color: var(--color-error);
   font-size: 0.85rem;
 }
 
-/* Estrellas */
+/* Botón */
+.reviewForm button {
+  padding: 0.7rem 1rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--color-primary);
+  color: var(--color-surface);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.reviewForm button:hover:not(:disabled) {
+  background: var(--color-primary-dark);
+}
+
+.reviewForm button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ---------- Estrellas del formulario ---------- */
+
 .estrellas {
   border: none;
   padding: 0;
@@ -66,35 +149,45 @@
   gap: 0.15rem;
   flex-wrap: wrap;
 }
+
 .estrellas legend {
   width: 100%;
   margin-bottom: 0.35rem;
   font-weight: 600;
   font-size: 0.9rem;
 }
+
 .estrellas label {
   position: relative;
   cursor: pointer;
 }
+
 .estrellas input {
   position: absolute;
   opacity: 0;
 }
+
 .estrellas [aria-hidden="true"] {
   font-size: 2rem;
   line-height: 1;
-  color: #ccc;
+  color: var(--color-star-off);
 }
+
 /* Ilumina la elegida y las anteriores (orden del DOM 1→5) */
 .estrellas label:has(input:checked) [aria-hidden],
 .estrellas label:has(~ label input:checked) [aria-hidden],
 .estrellas label:hover [aria-hidden],
 .estrellas label:has(~ label:hover) [aria-hidden] {
-  color: gold;
+  color: var(--color-gold);
 }
+
 .estrellas label:has(input:focus-visible) {
-  outline: 2px solid #6d28d9;
+  outline: 2px solid var(--color-primary);
   border-radius: 4px;
+}
+
+.estrellas[aria-invalid="true"] [aria-hidden="true"] {
+  color: var(--color-error-soft);
 }
 
 .sr-only {
@@ -106,68 +199,17 @@
   white-space: nowrap;
 }
 
-/* Botón */
-.reviewForm button {
-  padding: 0.7rem 1rem;
-  border: none;
-  border-radius: 8px;
-  background: #6d28d9;
-  color: #fff;
-  font: inherit;
-  font-weight: 600;
-  cursor: pointer;
-}
-.reviewForm button:hover:not(:disabled) {
-  background: #5b21b6;
-}
-.reviewForm button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.error {
-  color: #c00;
-  font-size: 0.85rem;
-  margin: -0.5rem 0 0;
-}
-
-.reviewForm input[aria-invalid="true"],
-.reviewForm select[aria-invalid="true"],
-.reviewForm textarea[aria-invalid="true"] {
-  border-color: #c00;
-  background: #fff5f5;
-}
-
-.reviewForm input[aria-invalid="true"]:focus-visible,
-.reviewForm select[aria-invalid="true"]:focus-visible,
-.reviewForm textarea[aria-invalid="true"]:focus-visible {
-  outline-color: #c00;
-}
-.estrellas[aria-invalid="true"] [aria-hidden="true"] {
-  color: #f3b3b3;
-}
-
-.review-container {
-  max-width: 480px;
-  margin: 2rem auto;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  font-family: system-ui, sans-serif;
-}
+/* ---------- Lista de reseñas ---------- */
 
 .review-container > h3 {
   margin: 0 0 0.25rem;
   font-size: 1.25rem;
-  color: #3b0764;
+  color: var(--color-primary-deep);
 }
 
 .review {
   padding: 1rem 1.25rem;
-  background: #fff;
-  border: 1px solid #ddd;
-  border-left: 4px solid #6d28d9;
-  border-radius: 12px;
+  border-left: 4px solid var(--color-primary);
   box-shadow: 0 1px 3px rgb(0 0 0 / 0.06);
   transition: transform 0.15s, box-shadow 0.15s;
 }
@@ -177,41 +219,78 @@
   box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
 }
 
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 0.15rem;
+}
+
 .review h4 {
-  margin: 0 0 0.15rem;
+  margin: 0;
   font-size: 1.05rem;
-  color: #6d28d9;
+  color: var(--color-primary);
 }
 
 .review h5 {
   margin: 0 0 0.6rem;
   font-size: 0.85rem;
   font-weight: 500;
-  color: #666;
+  color: var(--color-muted);
 }
 
 .review p {
   margin: 0;
   line-height: 1.5;
-  color: #222;
-  overflow-wrap: anywhere; /* evita que un texto largo sin espacios rompa la tarjeta */
-}
-
-.review-header {
-  display: flex;
-  justify-content: space-between; /* título a la izquierda, estrellas a la derecha */
-  align-items: baseline;
-  gap: 0.75rem;
-  margin-bottom: 0.15rem;
-}
-
-.review-header h4 {
-  margin: 0;
+  color: var(--color-text);
+  overflow-wrap: anywhere;
 }
 
 .review .review-rating {
-  color: gold;
+  color: var(--color-gold);
   font-size: 1.1rem;
   letter-spacing: 0.1rem;
-  white-space: nowrap; /* que las estrellas no se partan en dos líneas */
+  white-space: nowrap;
+}
+
+/* ---------- Header ---------- */
+
+.site-header {
+  position: relative;
+  padding: 3rem 1rem 2.5rem;
+  text-align: center;
+  color: var(--color-surface);
+  font-family: var(--font-body);
+  background:
+    radial-gradient(circle at 20% 20%, rgb(255 255 255 / 0.15), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgb(255 215 0 / 0.18), transparent 40%),
+    linear-gradient(135deg, var(--color-primary-deep), var(--color-primary) 60%, var(--color-primary-light));
+  border-bottom: 4px solid var(--color-gold);
+  overflow: hidden;
+}
+
+.site-header__deco {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--color-gold);
+  letter-spacing: 0.6rem;
+  font-size: 1rem;
+}
+
+.site-header h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 400; /* la fuente solo tiene un peso: evita el negrita falso */
+  letter-spacing: 0.06em;
+  text-shadow: 0 2px 12px rgb(0 0 0 / 0.35);
+}
+
+.site-header p {
+  max-width: 36rem;
+  margin: 0.75rem auto 0;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: var(--color-primary-pale);
 }

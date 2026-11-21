@@ -1,5 +1,8 @@
 export default function Header(){
     return(
-        <h1 className="px-4 py-8 mx-auto my-auto max-w-md">THE ROOM WHERE IT HAPPENS</h1>
+        <header className="site-header">
+            <span className="site-header-deco" aria-hidden="true">✦ ★ ✦</span>
+            <h1>THE ROOM WHERE IT HAPPENED</h1>
+        </header>
     )
 }
