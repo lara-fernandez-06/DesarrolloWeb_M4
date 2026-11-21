@@ -47,8 +47,9 @@ export default function ReviewForm(){
     const mutacion = useMutation({
         mutationFn: api.submitReview,
         onSuccess: () => {
-        // invalidamos la query para que se refresque la lista
-        queryClient.invalidateQueries({ queryKey: ["reviews"] });
+            reset(); //para que se vacíe el formulario después de mandarlo  
+            // invalidamos la query para que se refresque la lista
+            queryClient.invalidateQueries({ queryKey: ["reviews"] });
         },
     });
 

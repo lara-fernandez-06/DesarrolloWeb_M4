@@ -146,3 +146,72 @@
 .estrellas[aria-invalid="true"] [aria-hidden="true"] {
   color: #f3b3b3;
 }
+
+.review-container {
+  max-width: 480px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-family: system-ui, sans-serif;
+}
+
+.review-container > h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.25rem;
+  color: #3b0764;
+}
+
+.review {
+  padding: 1rem 1.25rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-left: 4px solid #6d28d9;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.06);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.review:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
+}
+
+.review h4 {
+  margin: 0 0 0.15rem;
+  font-size: 1.05rem;
+  color: #6d28d9;
+}
+
+.review h5 {
+  margin: 0 0 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #666;
+}
+
+.review p {
+  margin: 0;
+  line-height: 1.5;
+  color: #222;
+  overflow-wrap: anywhere; /* evita que un texto largo sin espacios rompa la tarjeta */
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between; /* título a la izquierda, estrellas a la derecha */
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 0.15rem;
+}
+
+.review-header h4 {
+  margin: 0;
+}
+
+.review .review-rating {
+  color: gold;
+  font-size: 1.1rem;
+  letter-spacing: 0.1rem;
+  white-space: nowrap; /* que las estrellas no se partan en dos líneas */
+}
