@@ -1,3 +1,4 @@
+import { reviewListSchema } from "./schemas";
 const API_URL = "http://localhost:3000";
 
 export async function submitReview(data) {
@@ -6,12 +7,20 @@ export async function submitReview(data) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   });
-  if (!resp.ok) throw new Error(`Error ${r.status}`);
+  if (!resp.ok) throw new Error(`Error ${resp.status}`);
   return resp.json();
 }
 
 export async function getReviews() {
   const resp = await fetch(`${API_URL}/reviews`);
   if (!resp.ok) throw new Error(`Error ${r.status}`);
+
+  //comprobamos que los datos no estén corruptos
+  const result = reviewListSchema.safeParse(await r.json());
+  if (!result.success) {
+    console.error("Respuesta del API inválida:", result.error.issues);
+    throw new Error("El servidor devolvió datos con un formato inesperado");
+  }
+
   return resp.json();
 }

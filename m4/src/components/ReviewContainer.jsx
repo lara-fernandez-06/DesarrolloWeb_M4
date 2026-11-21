@@ -9,10 +9,10 @@ export default function ReviewContainer(){
         queryFn: api.getReviews
     })
 
-    if(isPending) return <p>Cargando...</p>
-    if(isError) return <p>Error: {error.message}</p>
-
+    if (isPending) return <p role="status">Cargando...</p>
+    if (isError) return <p role="alert" className="error">Error: {error.message}</p>
     return(
+        
         <div className='review-container'>
             <h3>Mira las últimas reseñas:</h3>
             {/*Se ven las 5 reseñas más recientes*/}
