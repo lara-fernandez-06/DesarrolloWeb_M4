@@ -3,62 +3,11 @@
     {
       "nombre": "Ada",
       "apellido": "Lovelace",
-      "email": "ada.lovelace@gmail.com",
-      "fechaNacimiento": "1965-04-17T00:00:00.000Z",
       "obra": "Hadestown",
       "rating": 5,
-      "review": "Me encantó, lloré al final",
-      "aceptaTerminos": true,
-      "fecha": "2026-11-21T03:37:03.971Z",
-      "id": "qMN3TsiM4n0"
-    },
-    {
-      "nombre": "Ada",
-      "apellido": "Platt",
-      "email": "ada.lovelace@gmail.com",
-      "fechaNacimiento": "2006-11-27T00:00:00.000Z",
-      "obra": "Hamilton",
-      "rating": 5,
-      "review": "es muy buena, una gran obra!!",
-      "aceptaTerminos": true,
-      "fecha": "2026-11-21T11:16:45.558Z",
-      "id": "tOB2Jy_fZ50"
-    },
-    {
-      "nombre": "Lin",
-      "apellido": "Manuel Miranda",
-      "email": "lmm@gmail.com",
-      "fechaNacimiento": "1981-01-11T00:00:00.000Z",
-      "obra": "West Side Story",
-      "rating": 5,
-      "review": "Me ha encantado, los bailes son espectaculares y el cast transmitió la emoción de la obra. 100% recomendada!!",
-      "aceptaTerminos": true,
-      "fecha": "2026-11-21T12:46:29.838Z",
-      "id": "mncM1kAm12I"
-    },
-    {
-      "nombre": "Héctor",
-      "apellido": "Fernández",
-      "email": "hector.fs1704@gmail.com",
-      "fechaNacimiento": "1734-04-17T00:00:00.000Z",
-      "obra": "Hamilton",
-      "rating": 5,
-      "review": "Very gud",
-      "aceptaTerminos": true,
-      "fecha": "2026-11-21T13:00:52.485Z",
-      "id": "ZjFiZ7LUovw"
-    },
-    {
-      "nombre": "Héctor ",
-      "apellido": "Fernández",
-      "email": "hector.fs1704@gmail.com",
-      "fechaNacimiento": "2000-04-17T00:00:00.000Z",
-      "obra": "Dear Evan Hansen",
-      "rating": 3,
-      "review": "Está bien\n\n-Sincerely, me",
-      "aceptaTerminos": true,
-      "fecha": "2026-11-21T13:05:09.405Z",
-      "id": "S78f2PIwZkI"
+      "review": "lalalalalalalaaaaa",
+      "fecha": "2026-11-22T12:48:28.465Z",
+      "id": "4kUWpu6TqZU"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

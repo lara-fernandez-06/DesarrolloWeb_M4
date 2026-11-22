@@ -1,5 +1,3 @@
-
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {useForm} from 'react-hook-form'
 import * as api from '../utils/api'
@@ -10,7 +8,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 export default function ReviewForm(){
 
     const {register, handleSubmit,  reset, formState: {errors, isSubmitting },} = useForm(
-        {resolver: zodResolver(schemas.reviewListSchema), defaultValues:{
+        {resolver: zodResolver(schemas.reviewForm), defaultValues:{
             nombre: "",
             apellido: "",
             email: "",
@@ -34,35 +32,36 @@ export default function ReviewForm(){
     });
 
     function onSubmit(datos){
-        mutacion.mutate({ ...datos, fecha: new Date().toISOString() });
+        const { email, fechaNacimiento, aceptaTerminos, ...resena } = datos;
+        mutacion.mutate({ ...resena, fecha: new Date().toISOString() });
     }
 
     return(
-        <form className="reviewForm" onSubmit={handleSubmit(onSubmit)}>
+        <form className="reviewForm" onSubmit={handleSubmit(onSubmit)} noValidate>
             
             <label>
                 Nombre
                 <input type="text" autoComplete="given-name" placeholder="Ada" aria-invalid={!!errors.nombre} {...register("nombre")}></input>
             </label>
-            {errors.nombre && <p className="error">{errors.nombre.message}</p>}
+            {errors.nombre && <p className="error" role="alert">{errors.nombre.message}</p>}
 
             <label>
                 Apellidos
                 <input type="text" autoComplete="family-name" placeholder="Lovelace" aria-invalid={!!errors.apellido} {...register("apellido")}></input>
             </label>
-            {errors.apellido && <p className="error">{errors.apellido.message}</p>}
+            {errors.apellido && <p className="error" role="alert">{errors.apellido.message}</p>}
 
             <label>
                 Email
                 <input type="email" autoComplete="email" placeholder="ada.lovelace@gmail.com" aria-invalid={!!errors.email} {...register("email")}></input>
             </label>
-            {errors.email && <p className="error">{errors.email.message}</p>}
+            {errors.email && <p className="error" role="alert">{errors.email.message}</p>}
 
             <label>
                 Fecha de nacimiento
                 <input type="date" autoComplete="bday" aria-invalid={!!errors.fechaNacimiento} {...register("fechaNacimiento")}></input>
             </label>
-            {errors.fechaNacimiento && <p className="error">{errors.fechaNacimiento.message}</p>}
+            {errors.fechaNacimiento && <p className="error" role="alert">{errors.fechaNacimiento.message}</p>}
 
             <label>
                 Título de la obra
@@ -75,7 +74,7 @@ export default function ReviewForm(){
                     ))}
                 </select>
             </label>
-            {errors.obra && <p className="error">{errors.obra.message}</p>}
+            {errors.obra && <p className="error" role="alert">{errors.obra.message}</p>}
 
             <fieldset className="estrellas" aria-invalid={!!errors.rating} > {/*envolvemos las opciones radio en fielset*/}
                 <legend>Puntuación</legend> {/*legend nos dice a que pregunta estamos respondiendo*/}
@@ -88,19 +87,19 @@ export default function ReviewForm(){
                     </label>
                 ))}
             </fieldset>
-            {errors.rating && <p className="error">{errors.rating.message}</p>}
+            {errors.rating && <p className="error" role="alert">{errors.rating.message}</p>}
 
             <label>
                 Review
                 <textarea placeholder="Escribe aquí tu reseña" aria-invalid={!!errors.review} {...register("review")}></textarea>
             </label>
-            {errors.review && <p className="error">{errors.review.message}</p>}
+            {errors.review && <p className="error" role="alert">{errors.review.message}</p>}
 
             <label>
                 <input type="checkbox" aria-invalid={!!errors.aceptaTerminos} {...register("aceptaTerminos")} />
                 <span>He leído y aceptado los términos y condiciones</span>
             </label>
-            {errors.aceptaTerminos && <p className="error">{errors.aceptaTerminos.message}</p>}
+            {errors.aceptaTerminos && <p className="error" role="alert">{errors.aceptaTerminos.message}</p>}
                             
             <button disabled={mutacion.isPending}>
                 {mutacion.isPending ? "Enviando…" : "Enviar reseña"}
