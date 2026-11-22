@@ -6,7 +6,9 @@ export const reviewForm = z.object({
         nombre: z.string().min(2, "El nombre es demasiado corto"),
         apellido: z.string().min(2, "El apellido es demasiado corto"),
         email: z.email("Email no válido"),
-        fechaNacimiento: z.coerce.date({error: "Fecha no válida" }).refine(
+        fechaNacimiento: z.coerce.date({error: "Fecha no válida" })
+        .min(new Date("1900-01-01"), { error: "Fecha no válida" })
+        .refine(
             (f) => {
             const hoy = new Date();
             return new Date(f.getFullYear() + 18, f.getMonth(), f.getDate()) <= hoy;
