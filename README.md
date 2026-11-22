@@ -1,8 +1,8 @@
 Misión M4 · Full Contact Form — Web Development I.
 
 ## Cómo probarlo
-Ejecutas npm run dev, y podrás ver el formulario a tu disposición para opinar sobre un musical que tú elijas.
-Para esta entrega parcial, el formulario manda la información y la guarda en db.json. Debajo del formulario, se pueden ver las últimas reseñas añadidas.
+Ejecutas npm run dev (inicamos la página) y npx json-server db.json --port 3000 (para iniciar la api), y podrás ver el formulario a tu disposición para opinar sobre un musical que tú elijas.
+En esta entrefa, el formulario manda la información y la guarda en db.json. Debajo del formulario, se pueden ver las últimas reseñas añadidas, las cuales primero pasan por una comporbacion cuando se obtienen los datos de db.json para asegurar que se muestran no hay datos corruptos.
 
 ## Uso de IA
 Usé Claude como pareja de programación: para ayudarme sobretodo a entender los conceptos de estas nuevas librerías y a mejorar mi eficiencia al escribir partes del código. Además, tuve un problema con cómo instalé alguans librerías, ya que algunas estaban en el proyecto, como debería ser, pero algunas estaban en el repo de gitHub, una carpeta más arriba, lo cual Claude me ayudó a solucionar.

@@ -1,5 +1,5 @@
 import { reviewListSchema } from "./schemas";
-const API_URL = "http://localhost:3000";
+const API_URL = import.meta.env.VITE_API_URL;;
 
 export async function submitReview(data) {
   const resp = await fetch(`${API_URL}/reviews`, {
